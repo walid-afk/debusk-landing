@@ -1,0 +1,6 @@
+# Google Apps Script Web App URL
+# Remplacez par votre URL de déploiement Google Apps Script
+APPS_SCRIPT_WEBAPP_URL="https://script.google.com/macros/s/AKfycbyJ8uk3CaR6rXl4cff8_9p1a53lP7hNbjAmUyA_gUM/exec"
+
+# Exemple avec un vrai ID (à remplacer par le vôtre) :
+# APPS_SCRIPT_WEBAPP_URL="https://script.google.com/macros/s/AKfycbzvrtf0IXd3VTWOq4aYhIbi0-gUPNdsrYaFYrD7FJMWgVlA4X6wDxHqk0IZuXiZfxPv/exec"
