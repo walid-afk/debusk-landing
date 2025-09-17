@@ -16,6 +16,7 @@
     "@types/three": "^0.180.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dotenv": "^17.2.2",
     "google-auth-library": "^10.3.0",
     "googleapis": "^159.0.0",
     "lucide-react": "^0.294.0",

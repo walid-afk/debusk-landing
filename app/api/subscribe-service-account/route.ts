@@ -75,6 +75,18 @@ export async function POST(request: NextRequest) {
       "universe_domain": "googleapis.com"
     }
 
+    // DEBUG TEMPORAIRE - À SUPPRIMER APRÈS TEST
+    console.log('=== DEBUG VARIABLES D\'ENVIRONNEMENT ===')
+    console.log('GOOGLE_SERVICE_ACCOUNT_TYPE:', process.env.GOOGLE_SERVICE_ACCOUNT_TYPE ? 'OK' : 'MANQUANT')
+    console.log('GOOGLE_PROJECT_ID:', process.env.GOOGLE_PROJECT_ID ? 'OK' : 'MANQUANT')
+    console.log('GOOGLE_PRIVATE_KEY_ID:', process.env.GOOGLE_PRIVATE_KEY_ID ? 'OK' : 'MANQUANT')
+    console.log('GOOGLE_PRIVATE_KEY:', process.env.GOOGLE_PRIVATE_KEY ? `OK (${process.env.GOOGLE_PRIVATE_KEY.length} caractères)` : 'MANQUANT')
+    console.log('GOOGLE_CLIENT_EMAIL:', process.env.GOOGLE_CLIENT_EMAIL ? 'OK' : 'MANQUANT')
+    console.log('GOOGLE_CLIENT_ID:', process.env.GOOGLE_CLIENT_ID ? 'OK' : 'MANQUANT')
+    console.log('GOOGLE_SHEET_ID:', process.env.GOOGLE_SHEET_ID ? 'OK' : 'MANQUANT')
+    console.log('TEST_VAR:', process.env.TEST_VAR)
+    console.log('==========================================')
+
     // Créer le client JWT
     const jwtClient = new JWT({
       email: serviceAccountKey.client_email,

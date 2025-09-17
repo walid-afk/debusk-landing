@@ -76,8 +76,15 @@ Footer complet avec liens, contact, newsletter et certifications.
 # Installation des dépendances
 npm install
 
+# Configuration des variables d'environnement
+cp env-local-example.txt .env.local
+# Puis remplissez .env.local avec vos vraies valeurs
+
 # Lancement en mode développement
 npm run dev
+
+# Test de l'API (optionnel)
+node test-api.js
 
 # Build de production
 npm run build
@@ -85,6 +92,16 @@ npm run build
 # Lancement en production
 npm start
 ```
+
+## 🔧 Configuration Google Sheets
+
+1. **Créez un Service Account** dans [Google Cloud Console](https://console.developers.google.com/)
+2. **Téléchargez le fichier JSON** du service account
+3. **Copiez les valeurs** dans votre fichier `.env.local`
+4. **Partagez votre Google Sheet** avec l'email du service account
+5. **Testez** avec le formulaire sur `http://localhost:3000/listeattente`
+
+Voir `GOOGLE_SHEETS_SETUP.md` pour les détails complets.
 
 ## 📱 Responsive Design
 

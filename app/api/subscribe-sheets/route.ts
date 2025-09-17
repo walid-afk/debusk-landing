@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { google } from 'googleapis'
 
+// Force dynamic rendering for this API route
+export const dynamic = 'force-dynamic'
+
 interface RequestBody {
   userType: string
   firstName: string
@@ -14,6 +17,7 @@ const serviceAccount = {
   "type": process.env.GOOGLE_SERVICE_ACCOUNT_TYPE || "service_account",
   "project_id": process.env.GOOGLE_PROJECT_ID || "",
   "private_key_id": process.env.GOOGLE_PRIVATE_KEY_ID || "",
+  
   "private_key": process.env.GOOGLE_PRIVATE_KEY || "",
   "client_email": process.env.GOOGLE_CLIENT_EMAIL || "",
   "client_id": process.env.GOOGLE_CLIENT_ID || "",
@@ -33,6 +37,7 @@ const validateEmail = (email: string): boolean => {
 export async function POST(request: NextRequest) {
   try {
     console.log('=== API subscribe-sheets appelée ===')
+    console.log('GOOGLE_PRIVATE_KEY:', process.env.GOOGLE_PRIVATE_KEY ? 'OK (' + process.env.GOOGLE_PRIVATE_KEY.length + ' caractères)' : 'MANQUANT')
     
     // Parse du body JSON
     const body: RequestBody = await request.json()

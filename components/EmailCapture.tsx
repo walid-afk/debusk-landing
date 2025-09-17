@@ -73,12 +73,8 @@ export default function EmailCapture() {
     setFormState({ status: 'loading', message: '' })
 
     try {
-      // Utiliser la route Google Sheets en local, fallback sur GitHub Pages
-      const apiRoute = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
-        ? '/api/subscribe-sheets' 
-        : '/api/subscribe-fallback'
-      
-      const response = await fetch(apiRoute, {
+      // Utiliser uniquement la route service-account
+      const response = await fetch('/api/subscribe-service-account', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -106,11 +102,12 @@ export default function EmailCapture() {
           company: '' 
         }) // Reset form
       } else {
+        console.error('Erreur API:', result)
         setFormState({ status: 'error', message: result.error || 'Oups, réessayez dans un instant.' })
       }
     } catch (error) {
       console.error('Erreur lors de l\'inscription:', error)
-      setFormState({ status: 'error', message: 'Oups, réessayez dans un instant.' })
+      setFormState({ status: 'error', message: `Erreur: ${error instanceof Error ? error.message : 'Oups, réessayez dans un instant.'}` })
     }
   }
 
