@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Export statique pour GitHub Pages
-  output: 'export',
-  trailingSlash: true,
+  // Configuration pour le développement local (sans export)
   images: {
     unoptimized: true,
     domains: ['images.unsplash.com'],

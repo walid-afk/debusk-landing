@@ -73,7 +73,12 @@ export default function EmailCapture() {
     setFormState({ status: 'loading', message: '' })
 
     try {
-      const response = await fetch('/api/subscribe-sheets', {
+      // Utiliser la route Google Sheets en local, fallback sur GitHub Pages
+      const apiRoute = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+        ? '/api/subscribe-sheets' 
+        : '/api/subscribe-fallback'
+      
+      const response = await fetch(apiRoute, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
